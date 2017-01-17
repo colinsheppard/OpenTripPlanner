@@ -16,7 +16,7 @@ tasks.withType(JavaCompile) {
 
 repositories {
         
-     maven { url "http://download.osgeo.org/webdav/geotools" } //colin
+     maven { url "http://download.osgeo.org/webdav/geotools" } 
      maven { url "http://repo1.maven.org/maven2" }
      maven { url "http://download.java.net/maven/2/" }
      maven { url "http://download.osgeo.org/webdav/geotools/" }
@@ -24,16 +24,9 @@ repositories {
      maven { url "http://maven.conveyal.com/" }
      maven { url "http://dl.bintray.com/andimarek/graphql-java" }
      maven { url "http://repo.maven.apache.org/maven2" }
-//colin
      maven { url "http://maven.geo-solutions.it" }
      maven { url "http://nexus.onebusaway.org/content/groups/public/" }
      maven { url "https://jitpack.io" }
-
-//    maven { url "http://maven.geotoolkit.org/" }
-//    maven { url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases" }
-//    maven { url "http://central.maven.org/maven2"}
-//    maven { url "http://repo.maven.apache.org/maven2" }
-//    maven { url "http://dl.bintray.com/matsim/matsim" }
 }
 dependencies {
     compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version:'1.9.39'
@@ -88,7 +81,6 @@ exclude(module: 'jackson-databind')
     compile group: 'org.apache.lucene', name: 'lucene-queries', version:'4.7.1'
     compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version:'4.7.1'
     compile group: 'org.apache.lucene', name: 'lucene-queryparser', version:'4.7.1'
-    //colin compile group: 'com.graphql-java', name: 'graphql-java', version:'2015-09-06T17-27-38'
     compile group: 'bsf', name: 'bsf', version:'2.4.0'
     compile group: 'io.opentraffic', name: 'traffic-engine', version:'0.2'
     compile(group: 'com.conveyal', name: 'r5', version:'0.1-SNAPSHOT') {
@@ -101,11 +93,6 @@ exclude(module: 'slf4j-simple')
        This behavior is not yet supported by Gradle, so this dependency has been converted to a compile dependency.
        Please review and delete this closure when resolved. */
     }
-    //colin
     compile group: 'javax.media', name: 'jai_core', version: '1.1.3'    
-    //compile 'com.github.graphql-java:graphql-java:v1.2'
     compile 'com.github.graphql-java:graphql-java:v2.3.0'
-    //colin compile group: 'com.graphql-java', name: 'graphql-java', version:'2015-09-06T17-27-38'
-    //compile 'com.github.OneBusAway:onebusaway-gtfs-modules:onebusaway-gtfs-modules-1.3.5'
-    //compile 'com.github.OneBusAway:onebusaway-csv-entities:onebusaway-csv-entities-1.1.5'
 }
