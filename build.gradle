@@ -1,0 +1,111 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.opentripplanner'
+version = '1.0.0'
+
+description = """OpenTripPlanner"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+        
+     maven { url "http://download.osgeo.org/webdav/geotools" } //colin
+     maven { url "http://repo1.maven.org/maven2" }
+     maven { url "http://download.java.net/maven/2/" }
+     maven { url "http://download.osgeo.org/webdav/geotools/" }
+     maven { url "http://people.apache.org/repo/m1-ibiblio-rsync-repository/org.apache.axis2/" }
+     maven { url "http://maven.conveyal.com/" }
+     maven { url "http://dl.bintray.com/andimarek/graphql-java" }
+     maven { url "http://repo.maven.apache.org/maven2" }
+//colin
+     maven { url "http://maven.geo-solutions.it" }
+     maven { url "http://nexus.onebusaway.org/content/groups/public/" }
+     maven { url "https://jitpack.io" }
+
+//    maven { url "http://maven.geotoolkit.org/" }
+//    maven { url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases" }
+//    maven { url "http://central.maven.org/maven2"}
+//    maven { url "http://repo.maven.apache.org/maven2" }
+//    maven { url "http://dl.bintray.com/matsim/matsim" }
+}
+dependencies {
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version:'1.9.39'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-ec2', version:'1.9.39'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-sqs', version:'1.9.39'
+    compile group: 'de.ruedigermoeller', name: 'fst', version:'2.34'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version:'1.0.13'
+    compile group: 'org.slf4j', name: 'jul-to-slf4j', version:'1.7.6'
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version:'1.7.6'
+    compile group: 'com.google.guava', name: 'guava', version:'18.0'
+    compile group: 'net.sf.trove4j', name: 'trove4j', version:'3.0.3'
+    compile group: 'org.geotools', name: 'gt-geojson', version:'10.5'
+    compile group: 'org.geotools', name: 'gt-referencing', version:'10.5'
+    compile group: 'org.geotools', name: 'gt-coverage', version:'10.5'
+    compile group: 'org.geotools', name: 'gt-arcgrid', version:'10.5'
+    compile group: 'org.geotools', name: 'gt-shapefile', version:'10.5'
+    compile group: 'org.geotools', name: 'gt-geotiff', version:'10.5'
+    compile group: 'org.geotools', name: 'gt-wfs', version:'10.5'
+    compile group: 'org.geotools', name: 'gt-epsg-hsql', version:'10.5'
+    compile(group: 'de.grundid.opendatalab', name: 'geojson-jackson', version:'1.2') {
+exclude(module: 'jackson-core')
+exclude(module: 'jackson-databind')
+    }
+    compile group: 'com.conveyal', name: 'jackson2-geojson', version:'0.8'
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version:'2.18'
+    compile group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version:'2.18'
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-grizzly2-http', version:'2.18'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.5.3'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.5.3'
+    compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version:'2.5.3'
+    compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-xml-provider', version:'2.5.3'
+    compile group: 'com.ning', name: 'async-http-client', version:'1.8.12'
+    compile group: 'javax.annotation', name: 'jsr250-api', version:'1.0'
+    compile group: 'javax.inject', name: 'javax.inject', version:'1'
+    compile group: 'org.onebusaway', name: 'onebusaway-gtfs', version:'1.3.5-conveyal-SNAPSHOT'
+    compile group: 'org.processing', name: 'core', version:'1.0.7'
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version:'2.6.1'
+    compile group: 'joda-time', name: 'joda-time', version:'2.1'
+    compile group: 'ar.com.hjg', name: 'pngj', version:'2.0.1'
+    compile group: 'net.sf.flexjson', name: 'flexjson', version:'2.0'
+    compile group: 'org.apache.axis', name: 'axis', version:'1.4'
+    compile group: 'org.apache.axis', name: 'axis-jaxrpc', version:'1.4'
+    compile group: 'org.apache.commons', name: 'commons-compress', version:'1.0'
+    compile group: 'commons-discovery', name: 'commons-discovery', version:'0.4'
+    compile group: 'net.java.dev.jets3t', name: 'jets3t', version:'0.8.1'
+    compile group: 'crosby.binary', name: 'osmpbf', version:'1.3.4-SNAPSHOT'
+    compile group: 'com.beust', name: 'jcommander', version:'1.30'
+    compile group: 'net.sourceforge.javacsv', name: 'javacsv', version:'2.0'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.5'
+    compile group: 'org.apache.commons', name: 'commons-math3', version:'3.0'
+    compile group: 'org.apache.lucene', name: 'lucene-core', version:'4.7.1'
+    compile group: 'org.apache.lucene', name: 'lucene-queries', version:'4.7.1'
+    compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version:'4.7.1'
+    compile group: 'org.apache.lucene', name: 'lucene-queryparser', version:'4.7.1'
+    //colin compile group: 'com.graphql-java', name: 'graphql-java', version:'2015-09-06T17-27-38'
+    compile group: 'bsf', name: 'bsf', version:'2.4.0'
+    compile group: 'io.opentraffic', name: 'traffic-engine', version:'0.2'
+    compile(group: 'com.conveyal', name: 'r5', version:'0.1-SNAPSHOT') {
+exclude(module: 'slf4j-simple')
+    }
+    testCompile group: 'junit', name: 'junit', version:'4.8.1'
+    testCompile group: 'org.mockito', name: 'mockito-all', version:'1.10.19'
+    compile(group: 'javax.servlet', name: 'servlet-api', version:'2.5') {
+       /* This dependency was originally in the Maven provided scope, but the project was not of type war.
+       This behavior is not yet supported by Gradle, so this dependency has been converted to a compile dependency.
+       Please review and delete this closure when resolved. */
+    }
+    //colin
+    compile group: 'javax.media', name: 'jai_core', version: '1.1.3'    
+    //compile 'com.github.graphql-java:graphql-java:v1.2'
+    compile 'com.github.graphql-java:graphql-java:v2.3.0'
+    //colin compile group: 'com.graphql-java', name: 'graphql-java', version:'2015-09-06T17-27-38'
+    //compile 'com.github.OneBusAway:onebusaway-gtfs-modules:onebusaway-gtfs-modules-1.3.5'
+    //compile 'com.github.OneBusAway:onebusaway-csv-entities:onebusaway-csv-entities-1.1.5'
+}
