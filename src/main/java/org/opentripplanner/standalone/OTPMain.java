@@ -98,6 +98,7 @@ public class OTPMain {
      */
     public void run() {
 
+        System.out.println("Main run");
         // TODO do params.infer() here to ensure coherency?
 
         /* Create the top-level objects that represent the OTP server. */
